@@ -53,7 +53,7 @@
 		<ul role="list" class="divide-y divide-gray-200">
 			<li>
 				<div class="relative px-4 py-4 sm:px-6">
-					<input type="checkbox" id="test" class="absolute w-full h-7 opacity-0 cursor-pointer peer">
+					<input type="checkbox" id="group_access_requests" class="absolute w-full h-7 opacity-0 cursor-pointer peer">
 					<div class="flex">
 						<div class="peer-checked:opacity-0">
 							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
@@ -108,7 +108,7 @@
 												</tr>
 											</table>
 											<div class="text-sm pt-5">
-												<button class="rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Accept</button>
+												<button class="rounded-md border border-transparent ml-2 bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Accept</button>
 												<button class="ml-3 rounded-md border border-transparent bg-blue-100 text-blue-900 px-4 py-2 text-sm font-medium" onclick="showDeclineModal()">Decline</button>
 											</div>
 										</div>
@@ -122,7 +122,7 @@
 			</li>
 			<li>
 				<div class="relative px-4 py-4 sm:px-6">
-					<input type="checkbox" id="test" class="absolute w-full h-7 opacity-0 cursor-pointer peer">
+					<input type="checkbox" id="group_creation_requests" class="absolute w-full h-7 opacity-0 cursor-pointer peer">
 					<div class="flex">
 						<div class="peer-checked:opacity-0">
 							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
@@ -174,8 +174,8 @@
 										<div class="text-blue-800 text-sm"><p>Note - Initial members will be automatically added to group.</p></div>
 									</div>
 									<div class="text-sm pt-5">
-										<button class="rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Accept</button>
-										<button class="ml-3 rounded-md border border-transparent bg-blue-100 text-blue-900 px-4 py-2 text-sm font-medium">Decline</button>
+										<button class="rounded-md border border-transparent bg-blue-600 ml-2 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Accept</button>
+										<button class="ml-3 rounded-md border border-transparent bg-blue-100 text-blue-900 px-4 py-2 text-sm font-medium" onclick="showDeclineModal()">Decline</button>
 									</div>
 								</div>
 							{% endfor %}
@@ -186,7 +186,7 @@
 			</li>
 			<li>
 				<div class="relative px-4 py-4 sm:px-6">
-					<input type="checkbox" id="test" class="absolute w-full h-7 opacity-0 cursor-pointer peer">
+					<input type="checkbox" id="group_membership_addition_request" class="absolute w-full h-7 opacity-0 cursor-pointer peer">
 					<div class="flex">
 						<div class="peer-checked:opacity-0">
 							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
@@ -226,8 +226,8 @@
 										</tr>
 									</table>
 									<div class="text-sm pt-5">
-										<button class="rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Accept</button>
-										<button class="ml-3 rounded-md border border-transparent bg-blue-100 text-blue-900 px-4 py-2 text-sm font-medium">Decline</button>
+										<button class="rounded-md border border-transparent ml-2 bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Accept</button>
+										<button class="ml-3 rounded-md border border-transparent bg-blue-100 text-blue-900 px-4 py-2 text-sm font-medium" onclick="showDeclineModal()">Decline</button>
 									</div>
 								</div>
 							{% endfor %}
@@ -240,7 +240,7 @@
 			{% if each_module.requests|length %}
 			<li>
 				<div class="relative px-4 py-4 sm:px-6">
-					<input type="checkbox" id="test" class="absolute w-full h-7 opacity-0 cursor-pointer peer">
+					<input type="checkbox" id="{{ each_module.module_tag }}" class="absolute w-full h-7 opacity-0 cursor-pointer peer">
 					<div class="flex">
 						<div class="peer-checked:opacity-0">
 							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
@@ -294,7 +294,7 @@
 											</table>
 											<div class="text-sm pt-5">
 												<button class="rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Accept</button>
-												<button class="ml-3 rounded-md border border-transparent bg-blue-100 text-blue-900 px-4 py-2 text-sm font-medium">Decline</button>
+												<button class="ml-3 rounded-md border border-transparent bg-blue-100 text-blue-900 px-4 py-2 text-sm font-medium" onclick="showDeclineModal()">Decline</button>
 											</div>
 										</div>
 									</div>
@@ -321,7 +321,7 @@
 				<div class="border-b px-4 py-3 bg-gray-100 flex">
 					<div class="declineHeading">
 					</div>
-					<div class="close_decline_modal ml-auto inline-block text-sm cursor-pointer">
+					<div class="close_decline_modal ml-auto inline-block text-sm cursor-pointer" onclick="close_decline_modal()">
 						<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
 					</div>
 				</div>

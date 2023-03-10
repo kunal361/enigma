@@ -24,3 +24,7 @@ function showNotificiation(type, message) {
   $(".notification_message").html(message)
   $("#notification_bar").removeClass("hidden")
 }
+
+function close_decline_modal(){
+  $('#decline_modal').addClass("hidden")
+}
