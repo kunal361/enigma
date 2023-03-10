@@ -3,7 +3,6 @@ version: '3'
 services:
   web:
     container_name: dev
-    image: ${DOCKERIMAGE}
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,12 +10,12 @@ services:
     env_file:
     - ./secrets/ops_app_dev.env
     volumes:
-    - .:/srv/code/dev
     - ./mounts/logs/:/ebs/logs/
     ports:
     - 8000:8000
     depends_on:
     - db
+
     command: >
       /bin/bash -c "
         while ! nc -z db 3306;
@@ -34,6 +33,31 @@ services:
     - ./secrets/ops_mysql_dev.env
     volumes:
     - ./dbs:/var/lib/mysql --socket=/tmp/mysql.sock
+
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    command: --port 6379
+    ports:
+      - "6379:6379"
+
+  celery:
+    container_name: celery
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target : celery
+    volumes:
+      - ./:/app/
+    env_file:
+    - ./secrets/ops_app_celery.env
+
+    depends_on:
+      - db
+      - redis
+      - web
+      
   test:
     container_name: test
     build:
