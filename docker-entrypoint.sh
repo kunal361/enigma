@@ -4,6 +4,7 @@ python manage.py createcachetable
 python manage.py migrate        # Apply database migrations
 python manage.py collectstatic --clear --noinput # clearstatic files
 python manage.py collectstatic --noinput  # collect static files
+python manage.py seed
 
 # directory for gunicorn logs and django app logs
 mkdir -p /ebs/logs
